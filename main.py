@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, END, Label, Spinbox, Button, Entry
 
 
 def generate_password():
