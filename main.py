@@ -1,4 +1,4 @@
-from tkinter import Tk, END, Label, Spinbox, Button, Entry
+from tkinter import Tk, END, Label, Spinbox, Button, Entry, messagebox
 from random import randint
 
 
@@ -13,6 +13,15 @@ def generate_password():
 
     password_display.delete(0, END)
     password_display.insert(0, new_password)
+
+
+def copy_password():
+    """Copy the password to the user's clipboard."""
+
+    root.clipboard_clear()
+    password = password_display.get()
+    root.clipboard_append(password)
+    messagebox.showinfo("Password Copied", f"{password} copied to clipboard.")
 
 
 root = Tk()
@@ -45,7 +54,9 @@ password_display = Entry(
 )
 password_display.grid(row=2, column=0, columnspan=3, pady=[30, 0])
 
-copy_button = Button(root, text="Copy to clipboard", font=("Helvetica", 12))
+copy_button = Button(
+    root, text="Copy to clipboard", font=("Helvetica", 12), command=copy_password
+)
 copy_button.grid(row=3, column=0, columnspan=3, pady=30)
 
 root.mainloop()
