@@ -1,10 +1,18 @@
 from tkinter import Tk, END, Label, Spinbox, Button, Entry
+from random import randint
 
 
 def generate_password():
-    length = length_input.get()
+    """Generate a password based on the input length."""
+
+    length = int(length_input.get())
+    new_password = ""
+
+    for _ in range(length):
+        new_password += chr(randint(33, 125))
+
     password_display.delete(0, END)
-    password_display.insert(0, f"Password length is {length}")
+    password_display.insert(0, new_password)
 
 root = Tk()
 root.title("Password Generator")
