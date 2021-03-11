@@ -41,8 +41,11 @@ generate_button = Button(
 generate_button.grid(row=1, column=2, sticky="w")
 
 password_display = Entry(
-    root, width=15, font=("Helvetica 20"), bd=0, bg="systembuttonface"
+    root, width=15, font=("Helvetica 20"), bd=0, bg="systembuttonface", justify="center"
 )
-password_display.grid(row=2, column=0, columnspan=3, pady=[30, 40])
+password_display.grid(row=2, column=0, columnspan=3, pady=[30, 0])
+
+copy_button = Button(root, text="Copy to clipboard", font=("Helvetica", 12))
+copy_button.grid(row=3, column=0, columnspan=3, pady=30)
 
 root.mainloop()
