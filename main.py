@@ -14,6 +14,7 @@ def generate_password():
     password_display.delete(0, END)
     password_display.insert(0, new_password)
 
+
 root = Tk()
 root.title("Password Generator")
 
@@ -23,7 +24,7 @@ title_label = Label(
     height=2,
     text="Password Generator",
     font=("Helvetica 16 bold"),
-    bg="#bfbfbf"
+    bg="#bfbfbf",
 )
 title_label.grid(row=0, column=0, columnspan=3, pady=[0, 30])
 
@@ -34,10 +35,14 @@ length_input = Spinbox(root, width=3, from_=1, to=15, font=("Helvetica", 20))
 length_input.insert(1, 0)
 length_input.grid(row=1, column=1)
 
-generate_button = Button(root, text="Generate", font=("Helvetica 12"), command=generate_password)
+generate_button = Button(
+    root, text="Generate", font=("Helvetica 12"), command=generate_password
+)
 generate_button.grid(row=1, column=2, sticky="w")
 
-password_display = Entry(root, width=15, font=("Helvetica 20"), bd=0, bg="systembuttonface")
+password_display = Entry(
+    root, width=15, font=("Helvetica 20"), bd=0, bg="systembuttonface"
+)
 password_display.grid(row=2, column=0, columnspan=3, pady=[30, 40])
 
 root.mainloop()
